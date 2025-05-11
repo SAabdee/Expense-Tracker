@@ -1,0 +1,150 @@
+/* Base Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Center Container Box */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Headings */
+h1, h2, h3 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+/* Forms */
+form {
+    margin: 20px auto;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background-color: #2e86de;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #1b4f72;
+}
+
+/* Navigation Bar */
+.nav-bar {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.nav-bar a {
+    display: inline-block;
+    margin: 6px;
+    padding: 10px 16px;
+    background-color: #2e86de;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.nav-bar a:hover {
+    background-color: #1b4f72;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #2e86de;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Category List */
+ul.category-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+ul.category-list li {
+    background-color: #eaeaea;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Status Badges */
+.status {
+    padding: 5px 12px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.status.pending {
+    background-color: #f39c12;
+}
+
+.status.paid {
+    background-color: #27ae60;
+}
+
+.status.declined {
+    background-color: #e74c3c;
+}
+
+/* Error Message */
+.error {
+    color: red;
+    text-align: center;
+}

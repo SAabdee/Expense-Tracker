@@ -1,0 +1,53 @@
+﻿{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <h2>Lend Money</h2>
+
+    <form method="POST">
+        <label for="to_username">Select Friend</label>
+        <select name="to_username" id="to_username" required>
+            {% for f in friends %}
+            <option value="{{ f }}">{{ f }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <input type="number" name="amount" placeholder="Amount" step="0.01" required>
+        <button type="submit">Send Lend Request</button>
+    </form>
+
+    <h3>Incoming Lend Requests</h3>
+    <table>
+        <tr>
+            <th>From</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        {% for r in requests %}
+        <tr>
+            <td>{{ r[1] }}</td>
+            <td>${{ r[2] }}</td>
+            <td>
+                <span class="status {{ r[3] if r[3] else 'pending' }}">
+                    {{ r[3].capitalize() if r[3] else 'Unconfirmed' }}
+                </span>
+            </td>
+            <td>
+                {% if r[3] == 'pending' %}
+                    <a href="/pay/{{ r[0] }}">Pay Now</a>
+                {% elif r[3] == 'declined' %}
+                    <span class="status declined">Declined</span>
+                {% elif r[3] == 'paid' %}
+                    <span class="status paid">Paid</span>
+                {% else %}
+                    <a href="/respond/{{ r[0] }}/accept">Accept</a> |
+                    <a href="/respond/{{ r[0] }}/decline">Decline</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p><a href="/dashboard">Back to Dashboard</a></p>
+</div>
+{% endblock %}

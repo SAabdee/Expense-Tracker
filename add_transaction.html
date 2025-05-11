@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <h2>Add Transaction</h2>
+
+    <form method="POST">
+        <input type="number" name="amount" placeholder="Amount" step="0.01" required><br>
+        <select name="type" required>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+        </select><br>
+        <input type="text" name="category" placeholder="Category"><br>
+        <input type="text" name="description" placeholder="Description"><br>
+        <input type="date" name="date" required><br>
+        <button type="submit">Add Transaction</button>
+    </form>
+
+    <p><a href="/dashboard">Back to Dashboard</a></p>
+</div>
+{% endblock %}

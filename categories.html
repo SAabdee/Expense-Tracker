@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <h2>Manage Categories</h2>
+
+    <form method="POST">
+        <input type="text" name="category" placeholder="New Category" required>
+        <button type="submit">Add Category</button>
+    </form>
+
+    <h3>Your Categories</h3>
+    <ul class="category-list">
+        {% for c in categories %}
+        <li>{{ c }}</li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="/dashboard">Back to Dashboard</a></p>
+</div>
+{% endblock %}

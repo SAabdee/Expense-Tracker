@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <h2>Friends</h2>
+
+    <form method="POST">
+        <input type="text" name="friend_username" placeholder="Friend's Username" required>
+        <button type="submit">Add Friend</button>
+    </form>
+
+    <h3>Your Friends</h3>
+    <ul class="category-list">
+        {% for f in friends %}
+        <li>{{ f }}</li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="/dashboard">Back to Dashboard</a></p>
+</div>
+{% endblock %}

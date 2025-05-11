@@ -1,0 +1,44 @@
+﻿{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <h2>Welcome, {{ username }}</h2>
+
+    <div class="nav-bar">
+        <a href="/add">Add Transaction</a>
+        <a href="/report">Current Report</a>
+        <a href="/lend">Lend</a>
+        <a href="/categories">Categories</a>
+        <a href="/friends">Friends</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <h3>Recent Transactions</h3>
+
+    <table>
+        <tr>
+            <th>Amount</th>
+            <th>Type</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+        {% for t in transactions %}
+        <tr>
+            <td>{{ t[1] }}</td>
+            <td>{{ t[2] }}</td>
+            <td>{{ t[3] }}</td>
+            <td>{{ t[4] }}</td>
+            <td>{{ t[5] }}</td>
+            <td>
+                {% if t[0] %}
+                <a href="/delete_transaction/{{ t[0] }}">🗑️ Delete</a>
+                {% else %}
+                —
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

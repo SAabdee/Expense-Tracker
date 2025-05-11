@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <h2>Monthly Summary</h2>
+
+    <table>
+        <tr><th>Type</th><th>Total Amount</th></tr>
+        <tr><td>Income</td><td>${{ income }}</td></tr>
+        <tr><td>Expense</td><td>${{ expense }}</td></tr>
+        <tr><td><strong>Remaining</strong></td><td><strong>${{ remaining }}</strong></td></tr>
+    </table>
+
+    <h3>Summary Chart</h3>
+    <canvas id="summaryChart" width="400" height="300"></canvas>
+
+    <form method="POST" action="/report/pdf">
+        <button type="submit">Download PDF</button>
+    </form>
+
+    <p><a href="/dashboard">Back to Dashboard</a></p>
+</div>
+
+<!-- Chart.js library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('summaryChart').getContext('2d');
+    const summaryChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Income', 'Expense'],
+            datasets: [{
+                data: [{{ income }}, {{ expense }}],
+                backgroundColor: ['#28a745', '#dc3545'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'bottom' }
+            }
+        }
+    });
+</script>
+{% endblock %}
